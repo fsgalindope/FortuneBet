@@ -153,7 +153,6 @@ public class MenuCliente extends javax.swing.JFrame {
     }
     public final Panel crearProducto(Apuesta apuesta, Panel panel) {
         
-        //Licor licor;
         
         ImageIcon icon= new ImageIcon();
         Icon iconScale;
@@ -168,13 +167,7 @@ public class MenuCliente extends javax.swing.JFrame {
         JLabel deporte = new JLabel(apuesta.getDeporte());  //nombre
         //JLabel cuota = new JLabel("$" + String.valueOf(apuesta.getCuota())); //precio
         JLabel liga = new JLabel(apuesta.getLiga());
-        /*if(producto.getClass().equals(Licor.class)){
-            licor = (Licor) producto;
-            if(licor.getFactorPromocion()!=1){
-        precio.setText("$" + String.valueOf(producto.getPrecio())+"  -"+
-                String.valueOf(Integer.valueOf((int) (100-licor.getFactorPromocion()*100)))+"%");   
-            }
-        }*/
+        
         
         JLabel imagen = new JLabel();
         JLabel estado = new JLabel(apuesta.getDescripcion());  // lugar
@@ -197,9 +190,7 @@ public class MenuCliente extends javax.swing.JFrame {
         panelProducto.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                /*GUIProductoEspecifico mostrarProducto = new GUIProductoEspecifico(producto, catalogo, carrito,baseDatosUsuarios,controladorBaseUsuariosGeneracion,controladorBaseCatalogo);
-                mostrarProducto.setVisible(rootPaneCheckingEnabled);
-                dispose();*/
+                
             }
         });
 
@@ -227,7 +218,7 @@ public class MenuCliente extends javax.swing.JFrame {
         panelTitulo = new java.awt.Panel();
         btnSalir = new javax.swing.JButton();
         jLabel9 = new javax.swing.JLabel();
-        irCarrito = new javax.swing.JButton();
+        irApuestas = new javax.swing.JButton();
         labelLogo = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         panelOpciones = new java.awt.Panel();
@@ -251,9 +242,9 @@ public class MenuCliente extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         jrbRango = new javax.swing.JRadioButton();
         jrbCiclismo = new javax.swing.JRadioButton();
-        jrbJumbo = new javax.swing.JRadioButton();
-        jrbCarulla = new javax.swing.JRadioButton();
-        jrbExito = new javax.swing.JRadioButton();
+        jrbLiga1 = new javax.swing.JRadioButton();
+        jrbLiga2 = new javax.swing.JRadioButton();
+        jrbLiga3 = new javax.swing.JRadioButton();
         jLabel10 = new javax.swing.JLabel();
         scrollPane1 = new java.awt.ScrollPane();
         panel1 = new java.awt.Panel();
@@ -279,16 +270,17 @@ public class MenuCliente extends javax.swing.JFrame {
         jLabel9.setBackground(new java.awt.Color(255, 81, 81));
         jLabel9.setFont(new java.awt.Font("Rockwell", 2, 48)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel9.setText("FORTUNEBET");
+        jLabel9.setText("FortuneBet");
+        jLabel9.setToolTipText("");
         jLabel9.setOpaque(true);
 
-        irCarrito.setBackground(new java.awt.Color(255, 204, 51));
-        irCarrito.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        irCarrito.setText("Carrito");
-        irCarrito.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        irCarrito.addActionListener(new java.awt.event.ActionListener() {
+        irApuestas.setBackground(new java.awt.Color(255, 204, 51));
+        irApuestas.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        irApuestas.setText("Mis Apuestas");
+        irApuestas.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        irApuestas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                irCarritoActionPerformed(evt);
+                irApuestasActionPerformed(evt);
             }
         });
 
@@ -302,7 +294,7 @@ public class MenuCliente extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, 514, Short.MAX_VALUE)
                 .addGap(83, 83, 83)
-                .addComponent(irCarrito, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(irApuestas, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(32, 32, 32)
                 .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(58, 58, 58))
@@ -318,7 +310,7 @@ public class MenuCliente extends javax.swing.JFrame {
                     .addGroup(panelTituloLayout.createSequentialGroup()
                         .addGap(20, 20, 20)
                         .addGroup(panelTituloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(irCarrito, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(irApuestas, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap())
         );
@@ -481,32 +473,32 @@ public class MenuCliente extends javax.swing.JFrame {
         });
         panelOpciones.add(jrbCiclismo, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 380, 179, -1));
 
-        buttonGroup1.add(jrbJumbo);
-        jrbJumbo.setText("TIPO1");
-        jrbJumbo.addActionListener(new java.awt.event.ActionListener() {
+        buttonGroup1.add(jrbLiga1);
+        jrbLiga1.setText("TIPO1");
+        jrbLiga1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jrbJumboActionPerformed(evt);
+                jrbLiga1ActionPerformed(evt);
             }
         });
-        panelOpciones.add(jrbJumbo, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 430, -1, -1));
+        panelOpciones.add(jrbLiga1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 430, -1, -1));
 
-        buttonGroup1.add(jrbCarulla);
-        jrbCarulla.setText("TIPO1");
-        jrbCarulla.addActionListener(new java.awt.event.ActionListener() {
+        buttonGroup1.add(jrbLiga2);
+        jrbLiga2.setText("TIPO1");
+        jrbLiga2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jrbCarullaActionPerformed(evt);
+                jrbLiga2ActionPerformed(evt);
             }
         });
-        panelOpciones.add(jrbCarulla, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 460, -1, -1));
+        panelOpciones.add(jrbLiga2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 460, -1, -1));
 
-        buttonGroup1.add(jrbExito);
-        jrbExito.setText("TIPO1");
-        jrbExito.addActionListener(new java.awt.event.ActionListener() {
+        buttonGroup1.add(jrbLiga3);
+        jrbLiga3.setText("TIPO1");
+        jrbLiga3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jrbExitoActionPerformed(evt);
+                jrbLiga3ActionPerformed(evt);
             }
         });
-        panelOpciones.add(jrbExito, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 490, -1, -1));
+        panelOpciones.add(jrbLiga3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 490, -1, -1));
 
         jScrollPane1.setViewportView(panelOpciones);
 
@@ -591,17 +583,17 @@ public class MenuCliente extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnSalirActionPerformed
 
-    private void jrbExitoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jrbExitoActionPerformed
+    private void jrbLiga3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jrbLiga3ActionPerformed
         
-    }//GEN-LAST:event_jrbExitoActionPerformed
+    }//GEN-LAST:event_jrbLiga3ActionPerformed
 
-    private void jrbCarullaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jrbCarullaActionPerformed
+    private void jrbLiga2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jrbLiga2ActionPerformed
         
-    }//GEN-LAST:event_jrbCarullaActionPerformed
+    }//GEN-LAST:event_jrbLiga2ActionPerformed
 
-    private void jrbJumboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jrbJumboActionPerformed
+    private void jrbLiga1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jrbLiga1ActionPerformed
       
-    }//GEN-LAST:event_jrbJumboActionPerformed
+    }//GEN-LAST:event_jrbLiga1ActionPerformed
 
     private void jrbCiclismoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jrbCiclismoActionPerformed
         organizarPrecio(false);
@@ -678,11 +670,7 @@ public class MenuCliente extends javax.swing.JFrame {
     }//GEN-LAST:event_jrbFutbolActionPerformed
 
     private void jrbMayorMenorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jrbMayorMenorActionPerformed
-        /*crearCatalogo(Buscador.preciosAltos(catalogo));
-        jLabel10.validate();
-        jLabel10.repaint();
-        jLabel10.setText("Mostrando "+String.valueOf(Buscador.preciosAltos(catalogo).size())+" resultados.");
-        organizarPrecio(false);*/
+       
     }//GEN-LAST:event_jrbMayorMenorActionPerformed
 
     private void jrbMenorMayorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jrbMenorMayorActionPerformed
@@ -711,9 +699,9 @@ public class MenuCliente extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtBuscadorEspecificoActionPerformed
 
-    private void irCarritoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_irCarritoActionPerformed
+    private void irApuestasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_irApuestasActionPerformed
        
-    }//GEN-LAST:event_irCarritoActionPerformed
+    }//GEN-LAST:event_irApuestasActionPerformed
 
     /**
      * @param args the command line arguments
@@ -763,7 +751,7 @@ public class MenuCliente extends javax.swing.JFrame {
     private javax.swing.JButton btnOrganizarPrecio;
     private javax.swing.JButton btnSalir;
     private javax.swing.ButtonGroup buttonGroup1;
-    private javax.swing.JButton irCarrito;
+    private javax.swing.JButton irApuestas;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
@@ -777,11 +765,11 @@ public class MenuCliente extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JRadioButton jrbBaseball;
     private javax.swing.JRadioButton jrbBasket;
-    private javax.swing.JRadioButton jrbCarulla;
     private javax.swing.JRadioButton jrbCiclismo;
-    private javax.swing.JRadioButton jrbExito;
     private javax.swing.JRadioButton jrbFutbol;
-    private javax.swing.JRadioButton jrbJumbo;
+    private javax.swing.JRadioButton jrbLiga1;
+    private javax.swing.JRadioButton jrbLiga2;
+    private javax.swing.JRadioButton jrbLiga3;
     private javax.swing.JRadioButton jrbMayorMenor;
     private javax.swing.JRadioButton jrbMenorMayor;
     private javax.swing.JRadioButton jrbRango;
