@@ -6,22 +6,33 @@
 package data;
 
 import java.util.ArrayList;
+import java.util.Stack;
+
 
 /**
  *
  * @author FABIa
  */
 public class Cliente extends Usuario {
-    private String contraseña;
-    private ArrayList<Apuesta> listaDeApuestas;
+    
+    private Stack<Apuesta> listaDeApuestas;
     private double dinero;
     private int edad;
 
-    public String getContraseña() {
-        return contraseña;
+    public Cliente(double dinero, int edad, int id, String nombre, String apellido, String correo, String usuario, String contraseña) {
+        super(id, nombre, apellido, correo, usuario, contraseña);
+        //this.listaDeApuestas = listaDeApuestas;
+        this.dinero = dinero;
+        this.edad = edad;
     }
 
-    public ArrayList<Apuesta> getListaDeApuestas() {
+    
+    
+    
+
+   
+
+    public Stack<Apuesta> getListaDeApuestas() {
         return listaDeApuestas;
     }
 
@@ -33,11 +44,9 @@ public class Cliente extends Usuario {
         return edad;
     }
 
-    public void setContraseña(String contraseña) {
-        this.contraseña = contraseña;
-    }
+    
 
-    public void setListaDeApuestas(ArrayList<Apuesta> listaDeApuestas) {
+    public void setListaDeApuestas(Stack<Apuesta> listaDeApuestas) {
         this.listaDeApuestas = listaDeApuestas;
     }
 

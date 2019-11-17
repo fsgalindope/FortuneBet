@@ -17,6 +17,16 @@ public class Usuario {
     private String usuario;
     private String contraseña;
 
+    public Usuario(int id, String nombre, String apellido, String correo, String usuario, String contraseña) {
+        this.id = id;
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.correo = correo;
+        this.usuario = usuario;
+        this.contraseña = contraseña;
+    }
+    
+    
     public void setId(int id) {
         this.id = id;
     }

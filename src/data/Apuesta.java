@@ -16,6 +16,52 @@ public class Apuesta {
     private String estado;
     private String liga;
     private double cuota;
+    private String imagen;
+    private double tiempo;
+
+    public Apuesta(int codigo, String descripcion, String deporte, String estado, String liga, double cuota, double tiempo) {
+        this.codigo = codigo;
+        this.descripcion = descripcion;
+        this.deporte = deporte;
+        this.estado = estado;
+        this.liga = liga;
+        this.cuota = cuota;
+        this.tiempo=tiempo;
+        if(deporte=="futbol"){
+            this.imagen="/recursos/soccer.png";
+        }else{
+            if (deporte=="basketball"){
+                this.imagen="/recursos/basketball.png";
+            }else{
+            if (deporte=="ciclismo"){
+                this.imagen="/recursos/ciclismo.png";
+            }else{
+            if (deporte=="tenis"){
+                this.imagen="/recursos/tenis.png";
+            }else{
+            if (deporte=="baseball"){
+                this.imagen="/recursos/baseball.png";
+            }else{
+                this.imagen="/recursos/otro.png";
+            }
+        }
+        }
+        }
+        }
+        
+    }
+    public double getTiempo (){
+        return tiempo;
+    }
+    public void setTiempo (double tiempo){
+        this.tiempo= tiempo;
+    }
+    
+    public String getImagen() {
+        return imagen;
+    }
+    
+    
 
     public int getCodigo() {
         return codigo;

@@ -6,13 +6,20 @@
 package data;
 
 import java.util.ArrayList;
+import java.util.Stack;
 
 /**
  *
  * @author FABIa
  */
 public class Administrador extends Usuario {
-    private ArrayList<Cliente> listaClientes;
+
+    public Administrador(Stack<Cliente> listaClientes, int id, String nombre, String apellido, String correo, String usuario, String contraseña) {
+        super(id, nombre, apellido, correo, usuario, contraseña);
+        this.listaClientes = listaClientes;
+    }
+    
+    private Stack<Cliente> listaClientes;
     
     
 }
