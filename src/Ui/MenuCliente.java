@@ -73,7 +73,7 @@ public class MenuCliente extends javax.swing.JFrame {
         this.txtMax.setEnabled(false);
         this.btnOrganizarPrecio.setEnabled(false);
         //setIconImage(new ImageIcon(getClass().getResource("/recursos/iconoPrincipal.png")).getImage());
-        this.setTitle("Buscador de productos");
+        this.setTitle("Menu Cliente");
         jLabel10.setText("Mostrando "+listaApuestas.size()+" resultados.");
         ImageIcon icon= new ImageIcon();
         Icon iconScale;
